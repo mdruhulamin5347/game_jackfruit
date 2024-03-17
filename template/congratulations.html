@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('/photos/selebraty.jpg');
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #f00;
+            border-radius: 50%;
+            animation: confetti-fall 5s ease-in-out infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .confetti:nth-child(2) {
+            left: 10%;
+            animation-delay: 1s;
+            background-color: #00f;
+        }
+
+        .confetti:nth-child(3) {
+            left: 20%;
+            animation-delay: 2s;
+            background-color: #0f0;
+        }
+
+        .confetti:nth-child(4) {
+            left: 30%;
+            animation-delay: 3s;
+            background-color: #ff0;
+        }
+
+        .confetti:nth-child(5) {
+            left: 40%;
+            animation-delay: 4s;
+            background-color: #f0f;
+        }
+
+        .confetti:nth-child(6) {
+            left: 50%;
+            animation-delay: 5s;
+            background-color: #0ff;
+        }
+
+        .confetti:nth-child(7) {
+            left: 60%;
+            animation-delay: 6s;
+            background-color: #f80;
+        }
+
+        .confetti:nth-child(8) {
+            left: 70%;
+            animation-delay: 7s;
+            background-color: #8f0;
+        }
+
+        .confetti:nth-child(9) {
+            left: 80%;
+            animation-delay: 8s;
+            background-color: #f08;
+        }
+
+        .confetti:nth-child(10) {
+            left: 90%;
+            animation-delay: 9s;
+            background-color: #0f8;
+        }
+
+        .celebration-message {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            background-color: #ff6384;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: balloon-rise 15s linear infinite;
+            transform-origin: bottom center;
+        }
+
+        @keyframes balloon-rise {
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-1000px) scale(1.1); }
+            100% { transform: translateY(-2000px) scale(1); }
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+            animation: sparkles-fall 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkles-fall {
+            0%, 100% { transform: translateY(-100vh) rotate(0deg); }
+            50% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .try-again {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .try-again a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .try-again a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body style="background-image: url('../photos/selebraty.jpg');">
+    <div class="container">
+        <h1>Congratulations!</h1>
+        <p class="celebration-message">You've achieved something amazing.</p>
+        <h2>{{ names_string }}</h2>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="balloon"></div>
+        <div class="sparkles"></div>
+        <div class="try-again">
+            <a href="{% url 'home' %}">Try again</a>
+        </div>
+    </div>
+</body>
+</html>

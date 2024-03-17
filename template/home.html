@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAME ZONE</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+
+    footer {
+      background-color: #f8f9fa;
+      padding: 10px 0;
+      margin-top: 5px;
+      text-align: center;
+    }
+    @media (max-width: 576px) {
+      /* Adjust font sizes for small screens */
+      .row-media-screen-height {
+        height: 600px;
+        overflow: auto;
+      }
+ 
+      h3{
+        margin-top: 15px;
+        font-size: 30px; 
+      }
+    }
+  </style>
+</head>
+<body>
+  {% for message in messages %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+<div class="container mt-2" >
+  <h3 class="text-center mt-3">TEAM JACKFRUIT GAME ZONE</h3>
+  
+
+  <div class="card mt-4">
+    <div class="card-body">
+      <h5 class="card-title">Players</h5>
+      <div class="row-media-screen-height row" style="height: 160px; overflow:auto">
+        {% for i in obj %}
+          <div class="col-lg-3 col-6 ">
+            <li class="list-group-item">{{ i.name }}</li>
+          </div>
+          
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  <form class="mt-4" method="POST" action="{% url 'home' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+    
+      <div class="input-group">
+        <input placeholder="Enter Your Name:" name="name" type="text" class="form-control" id="yourName" required>
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary">Add Name</button>
+          </div>
+      </div>
+    </div>
+  </form>
+
+  <form class="mt-4" method="POST" action="{% url 'congratulation' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+
+      <div class="input-group">
+        <input placeholder="How many people can you take :" type="text" name="choice_count" class="form-control" id="yourName" required>
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary">Run Select</button>
+          </div>
+      </div>
+    </div>
+  </form>
+  
+  <a class="btn btn-secondary mt-3" href="{% url 'delete' %}">Reset Data</a>
+</div>
+
+<div>
+  <footer class="fixed-bottom">
+    <div class="container">
+      <p>&copy; 2024 Your Jackfruit Website</p>
+    </div>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
